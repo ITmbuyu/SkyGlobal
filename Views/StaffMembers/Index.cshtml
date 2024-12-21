@@ -1,0 +1,83 @@
+﻿@model IEnumerable<SkyGlobal.Models.StaffMember>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffMemberName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffMemberSurname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffMemberEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffMemberPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffMemberPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffMemberRole)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffMemeberRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffMemeberHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffMemberName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffMemberSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffMemberEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffMemberPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffMemberPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffMemberRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffMemeberRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffMemeberHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Team.TeamId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StaffMemberId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StaffMemberId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StaffMemberId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,50 +1,252 @@
-﻿<!DOCTYPE html>
+﻿<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewData["Title"] - SkyGlobal</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/SkyGlobal.styles.css" asp-append-version="true" />
+    <!--/google-fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!--//google-fonts -->
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link href="~/temp/assets/css/style-starter.css" rel="stylesheet" />
+   
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SkyGlobal</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+    <!--/Header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light stroke py-lg-0">
+                <h1>
+                    <a class="navbar-brand pe-xl-5 pe-lg-4" href="index.html">
+                        Ko<span class="sublog">Deal.</span>
+                    </a>
+                </h1>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-lg-auto my-2 my-lg-0 navbar-nav-scroll">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link active" aria-current="page" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
-                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav search-right mt-lg-0 mt-2">
+                        <li class="nav-item mr-2" title="Search">
+                            <a href="#search" class="search-search">
+                                <span class="fas fa-search" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item mx-lg-4 phone-btn btn-white d-none d-lg-block btn-style ms-2"> <partial name="_LoginPartial" /> </li>
+                        
+                    </ul>
+
+                    <!-- //toggle switch for light and dark theme -->
+                    <!-- search popup -->
+                    <div id="search" class="w3lpop-overlay">
+                        <div class="w3lpopup">
+                            <form action="#formsearch" method="GET" class="d-flex">
+                                <input type="search" placeholder="Search.." name="search" required="required" autofocus>
+                                <button type="submit"><span class="fas fa-search"></span></button>
+                                <a class="close" href="#formsearch">&times;</a>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /search popup -->
+                </div>
+                <!-- toggle switch for light and dark theme -->
+                <div class="mobile-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!--//Header-->
+    <body>
+        @RenderBody()
+    </body>
+
+    <!--/w3l-footer-29-main-->
+    <footer class="w3l-footer-29-main">
+        <div class="footer-29 py-5">
+            <div class="container py-lg-4">
+                <div class="row align-items-center mb-3">
+                    <h2 class="sign-left col-lg-7"> Join our community by using our services and grow your business. </h2>
+                    <div class="footerw3-btn col-lg-5 ps-lg-5"><a href="#" class="btn btn-secondary btn-style"> Try it For Free <span class="fas fa-angle-double-right ms-2"></span></a></div>
+                </div>
+
+                <div class="row footer-top-29 mt-md-5 mt-4">
+                    <div class="col-lg-4 col-md-6 footer-list-29 footer-1 pe-lg-5">
+                        <h6 class="footer-title-29">About</h6>
+                        <div class="footer-listw3-grids">
+                            <p class="pe-lg-4">Lorem ipsum dolor sit amet consectetur ipsum amet elit.Sit amet consectetur ipsum amet,Lorem ipsum dolor sit amet. </p>
+                            <div class="w3pt-call-box mt-4">
+                                <div class="w3pt-call-info">
+                                    <h5>Get Us Support</h5>
+
+                                    <h5><a href="tel:+1(21) 234 557 456"><i class="fas fa-phone-alt me-1"></i> +1(21) 234 557 456</a></h5>
+                                    <h5><a href="tel:+1(21) 234 4568"><i class="far fa-envelope me-1"></i> <a href="mailto:support@mail.com" class="mail"> support@mail.com</a></a></h5>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-2 col-md-6 footer-list-29 footer-3 mt-lg-0 mt-5">
+                        <h6 class="footer-title-29">Links</h6>
+                        <div class="footer-listw3-grids">
+                            <ul class="footer-listw3">
+                                <li><a href="#us">About Us</a></li>
+                                <li><a href="#team">Our Team</a></li>
+                                <li><a href="#pro">Projects</a></li>
+                                <li><a href="#career">Careers</a></li>
+                                <li><a href="#terms">Terms of Use</a></li>
+                                <li><a href="#tips">Privacy Policy</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 footer-list-29 footer-3 mt-lg-0 mt-5">
+                        <h6 class="footer-title-29">Services</h6>
+                        <div class="footer-listw3-grids">
+                            <ul class="footer-listw3">
+                                <li><a href="#lift">Secure services</a></li>
+                                <li><a href="#cardio">Digital arrange</a></li>
+                                <li><a href="#fit">Content strategy</a></li>
+                                <li><a href="#tips">Processing services</a></li>
+                                <li><a href="#tips">Web hosting</a></li>
+                                <li><a href="#tips">Page optimization</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 footer-list-29 footer-4 mt-lg-0 mt-5 ps-lg-5">
+                        <h6 class="footer-title-29">Keep Connected</h6>
+                        <p>Get Updates By Subscribe Our Weekly Newsletter</p>
+
+                        <form action="#" class="subscribe" method="post">
+                            <input type="email" name="email" placeholder="Your Email Address" required="">
+                            <button><span class="fas fa-paper-plane"></span></button>
+                        </form>
+                        <div class="main-social-footer-29 mt-4">
+                            <a href="#facebook" class="facebook"><span class="fab fa-facebook-f"></span></a>
+                            <a href="#twitter" class="twitter"><span class="fab fa-twitter"></span></a>
+                            <a href="#instagram" class="instagram"><span class="fab fa-instagram"></span></a>
+
+                            <a href="#linkd" class="linkd"><span class="fab fa-linkedin-in"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-copies text-center">
+                    <p class="copy-footer-29">
+                        &copy; 2024 - SkyGlobal - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></a>
+                    </p>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - SkyGlobal - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
+
+        <!-- move top -->
+        <button onclick="topFunction()" id="movetop" title="Go to top">
+            <span class="fa fa-angle-up"></span>
+        </button>
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+
+        </script>
+        <!-- //move top -->
+
     </footer>
+    <!--//footer-9 -->
+    <!-- Js scripts -->
+    <!-- Template JavaScript -->
+    <script src="~/temp/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/temp/assets/js/theme-change.js"></script>
+    <!-- MENU-JS -->
+    <script>
+        $(window).on("scroll", function() {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function() {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function() {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });
+
+    </script>
+    <!-- //MENU-JS -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function() {
+            $('.navbar-toggler').click(function() {
+                $('body').toggleClass('noscroll');
+            })
+        });
+
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+    <!-- //bootstrap -->
+    <script src="~/temp/assets/js/bootstrap.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
+
 </html>

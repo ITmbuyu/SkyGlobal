@@ -6,7 +6,7 @@ using SkyGlobal.Models;
 
 namespace SkyGlobal.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -27,5 +27,10 @@ namespace SkyGlobal.Data
         public DbSet<Team> Teams { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
+        public DbSet<StaffMember> StaffMembers { get; set; }
+      
+
+       
+
     }
 }
