@@ -29,21 +29,26 @@
                 <span asp-validation-for="EndDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
+                <label asp-for="LeaveTypeId" class="control-label"></label>
+                <select asp-for="LeaveTypeId" class="form-control" asp-items="ViewBag.LeaveTypeId"></select>
+                <span asp-validation-for="LeaveTypeId" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="LeaveStatusId" class="control-label"></label>
+                <select asp-for="LeaveStatusId" class="form-control" asp-items="ViewBag.LeaveStatusId"></select>
+                <span asp-validation-for="LeaveStatusId" class="text-danger"></span>
+            </div>
+@*             <div class="form-group">
                 <label asp-for="ApproverId" class="control-label"></label>
                 <input asp-for="ApproverId" class="form-control" />
                 <span asp-validation-for="ApproverId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div> *@
+@*             <div class="form-group">
                 <label asp-for="ApproverRole" class="control-label"></label>
                 <input asp-for="ApproverRole" class="form-control" />
                 <span asp-validation-for="ApproverRole" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div> *@
+@*             <div class="form-group">
                 <label asp-for="RequestDate" class="control-label"></label>
                 <input asp-for="RequestDate" class="form-control" />
                 <span asp-validation-for="RequestDate" class="text-danger"></span>
@@ -58,6 +63,37 @@
                 <input asp-for="Comments" class="form-control" />
                 <span asp-validation-for="Comments" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div> *@
+            <!-- Conditionally visible fields for Admin -->
+            @if (ViewBag.UserRole == "Admin")
+            {
+            <div class="form-group">
+                <label asp-for="RequestDate" class="control-label"></label>
+                <input asp-for="RequestDate" class="form-control" />
+                <span asp-validation-for="RequestDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                    <label asp-for="Comments" class="control-label"></label>
+                    <input asp-for="Comments" class="form-control" />
+                    <span asp-validation-for="Comments" class="text-danger"></span>
+            </div>
+
+
+            }
+
+            <!-- Conditionally visible fields for Regular Users -->
+            @if (ViewBag.UserRole != "Admin")
+            {
+@*                 <div class="form-group">
+                    <label asp-for="Comments" class="control-label"></label>
+                    <textarea asp-for="Comments" class="form-control"></textarea>
+                    <span asp-validation-for="Comments" class="text-danger"></span>
+                </div> *@
+            }
+
+            <!-- Submit button -->
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

@@ -30,12 +30,6 @@
             @Html.DisplayFor(model => model.EndDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.ApproverId)
         </dt>
         <dd class = "col-sm-10">
@@ -64,6 +58,18 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Comments)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LeaveStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LeaveStatus.LeaveStatusId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LeaveType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LeaveType.LeaveTypeId)
         </dd>
     </dl>
     

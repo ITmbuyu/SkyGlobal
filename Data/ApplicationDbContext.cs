@@ -28,9 +28,9 @@ namespace SkyGlobal.Data
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
         public DbSet<StaffMember> StaffMembers { get; set; }
-      
+		public DbSet<LeaveType> LeaveTypes { get; set; }
+		public DbSet<LeaveStatus> LeaveStatuses { get; set; }
 
-       
 
-    }
+	}
 }
