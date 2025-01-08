@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +14,12 @@ namespace SkyGlobal.Controllers
     public class StaffMembersController : Controller
     {
         private readonly ApplicationDbContext _context;
+   
 
         public StaffMembersController(ApplicationDbContext context)
         {
             _context = context;
+           
         }
 
         // GET: StaffMembers
@@ -48,6 +51,7 @@ namespace SkyGlobal.Controllers
         // GET: StaffMembers/Create
         public IActionResult Create()
         {
+        
             ViewData["TeamId"] = new SelectList(_context.Teams, "TeamId", "TeamId");
             return View();
         }
