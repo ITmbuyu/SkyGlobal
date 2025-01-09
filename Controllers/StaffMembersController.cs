@@ -14,12 +14,18 @@ namespace SkyGlobal.Controllers
     public class StaffMembersController : Controller
     {
         private readonly ApplicationDbContext _context;
-   
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public StaffMembersController(ApplicationDbContext context)
+
+        public StaffMembersController(ApplicationDbContext context,UserManager<ApplicationUser> userManager,SignInManager<ApplicationUser> signInManager,RoleManager<IdentityRole> roleManager)
         {
             _context = context;
-           
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _roleManager = roleManager;
+
         }
 
         // GET: StaffMembers
@@ -51,8 +57,12 @@ namespace SkyGlobal.Controllers
         // GET: StaffMembers/Create
         public IActionResult Create()
         {
-        
-            ViewData["TeamId"] = new SelectList(_context.Teams, "TeamId", "TeamId");
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var role in _roleManager.Roles)
+                list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
+            ViewBag.Roles = list;
+           
+            ViewData["TeamId"] = new SelectList(_context.Teams, "TeamId", "TeamName");
             return View();
         }
 
@@ -67,9 +77,24 @@ namespace SkyGlobal.Controllers
             {
                 _context.Add(staffMember);
                 await _context.SaveChangesAsync();
+                //use the usermanager to create a new user using staffmember email and password
+                var user = new ApplicationUser { UserName = staffMember.StaffMemberEmail, Email = staffMember.StaffMemberEmail };
+                var result = await _userManager.CreateAsync(user, staffMember.StaffMemberPassword);
+                if (result.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(user, staffMember.StaffMemberRole);
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TeamId"] = new SelectList(_context.Teams, "TeamId", "TeamId", staffMember.TeamId);
+            ViewData["TeamId"] = new SelectList(_context.Teams, "TeamId", "TeamName", staffMember.TeamId);
             return View(staffMember);
         }
 
