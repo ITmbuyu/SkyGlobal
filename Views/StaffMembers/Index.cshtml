@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<SkyGlobal.Models.StaffMember>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Staff Members Index";
 }
 
-<!-- breadcrumb -->
+<!-- Breadcrumb Section -->
 <section class="w3l-about-breadcrumb">
     <div class="breadcrumb-bg breadcrumb-bg-about py-5">
         <div class="container py-lg-5 py-md-4">
@@ -12,90 +12,119 @@
                 <div class="w3breadcrumb-right">
                     <ul class="breadcrumbs-custom-path">
                         <li><a href="index.html">Home</a></li>
-                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Services</li>
+                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Staff Members</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!--//breadcrumb-->
-<!--/services-->
+<!--// Breadcrumb Section -->
+<!-- Page Title -->
+<div class="container">
+    <h1 class="text-center my-4 text-primary">Staff Members</h1>
+    <div class="text-center mb-4">
+        <a class="btn btn-success" asp-action="Create">Create New Staff Member</a>
+    </div>
 
-<h1>Index</h1>
+    <!-- Staff Member Table -->
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover mx-auto">
+            <thead class="thead-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.StaffMemberName)</th>
+                    <th>@Html.DisplayNameFor(model => model.StaffMemberSurname)</th>
+                    <th>@Html.DisplayNameFor(model => model.StaffMemberEmail)</th>
+                    <th>@Html.DisplayNameFor(model => model.StaffMemberPhone)</th>
+                    <th>@Html.DisplayNameFor(model => model.StaffMemberPassword)</th>
+                    <th>@Html.DisplayNameFor(model => model.StaffMemberRole)</th>
+                    <th>@Html.DisplayNameFor(model => model.StaffMemeberRate)</th>
+                    <th>@Html.DisplayNameFor(model => model.StaffMemeberHours)</th>
+                    <th>@Html.DisplayNameFor(model => model.Team)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.StaffMemberName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StaffMemberSurname)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StaffMemberEmail)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StaffMemberPhone)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StaffMemberPassword)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StaffMemberRole)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StaffMemeberRate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StaffMemeberHours)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Team.TeamId)</td>
+                        <td>
+                            <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.StaffMemberId">Edit</a>
+                            <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.StaffMemberId">Details</a>
+                            <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.StaffMemberId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.StaffMemberName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StaffMemberSurname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StaffMemberEmail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StaffMemberPhone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StaffMemberPassword)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StaffMemberRole)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StaffMemeberRate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StaffMemeberHours)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Team)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StaffMemberName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StaffMemberSurname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StaffMemberEmail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StaffMemberPhone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StaffMemberPassword)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StaffMemberRole)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StaffMemeberRate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StaffMemeberHours)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Team.TeamId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.StaffMemberId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.StaffMemberId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.StaffMemberId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<!-- Custom Styles -->
+<style>
+    /* Page Title and Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .text-primary {
+        font-family: 'Arial', sans-serif;
+        font-weight: 700;
+    }
+
+    /* Table Styling */
+    .table {
+        width: 100%;
+        margin-top: 30px;
+        border-radius: 8px;
+    }
+
+    .thead-dark {
+        background-color: #343a40;
+        color: white;
+    }
+
+    /* Table Actions Buttons */
+    .btn-sm {
+        margin: 0 5px;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    /* Button Hover Effects */
+    .btn:hover {
+        opacity: 0.9;
+        cursor: pointer;
+    }
+
+    /* Table Responsive Styling */
+    .table-responsive {
+        overflow-x: auto;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+</style>

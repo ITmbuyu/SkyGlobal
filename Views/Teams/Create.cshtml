@@ -1,7 +1,7 @@
 ﻿@model SkyGlobal.Models.Team
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Team";
 }
 
 <!-- breadcrumb -->
@@ -11,8 +11,8 @@
             <div class="w3breadcrumb-gids text-center pt-5">
                 <div class="w3breadcrumb-right">
                     <ul class="breadcrumbs-custom-path">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Services</li>
+                        <li><a href="index.html" class="breadcrumb-link">Home</a></li>
+                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Create Team</li>
                     </ul>
                 </div>
             </div>
@@ -20,37 +20,42 @@
     </div>
 </section>
 <!--//breadcrumb-->
-<!--/services-->
 
-<h1>Create</h1>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Create New Team</h1>
 
-<h4>Team</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="TeamLeaderId" class="control-label"></label>
-                <input asp-for="TeamLeaderId" class="form-control" />
-                <span asp-validation-for="TeamLeaderId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TeamName" class="control-label"></label>
-                <input asp-for="TeamName" class="form-control" />
-                <span asp-validation-for="TeamName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-4"></div>
+
+                <div class="form-group">
+                    <label asp-for="TeamLeaderId" class="control-label">Team Leader ID</label>
+                    <input asp-for="TeamLeaderId" class="form-control" placeholder="Enter Team Leader ID" />
+                    <span asp-validation-for="TeamLeaderId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="TeamName" class="control-label">Team Name</label>
+                    <input asp-for="TeamName" class="form-control" placeholder="Enter Team Name" />
+                    <span asp-validation-for="TeamName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Create" class="btn btn-primary btn-lg" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="mt-4 text-center">
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+

@@ -1,10 +1,10 @@
 ﻿@model SkyGlobal.Models.StaffMember
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Staff Member";
 }
 
-<!-- breadcrumb -->
+<!-- Breadcrumb Section -->
 <section class="w3l-about-breadcrumb">
     <div class="breadcrumb-bg breadcrumb-bg-about py-5">
         <div class="container py-lg-5 py-md-4">
@@ -12,82 +12,106 @@
                 <div class="w3breadcrumb-right">
                     <ul class="breadcrumbs-custom-path">
                         <li><a href="index.html">Home</a></li>
-                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Services</li>
+                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Create Staff Member</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!--//breadcrumb-->
-<!--/services-->
 
-<h1>Create</h1>
+<!-- Main Form Section -->
+<div class="container my-5">
+    <h1 class="text-center mb-4">Create Staff Member</h1>
+    <h4 class="text-center mb-4 text-muted">Please fill in the details below</h4>
 
-<h4>StaffMember</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="StaffMemberName" class="control-label"></label>
-                <input asp-for="StaffMemberName" class="form-control" />
-                <span asp-validation-for="StaffMemberName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StaffMemberSurname" class="control-label"></label>
-                <input asp-for="StaffMemberSurname" class="form-control" />
-                <span asp-validation-for="StaffMemberSurname" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StaffMemberEmail" class="control-label"></label>
-                <input asp-for="StaffMemberEmail" class="form-control" />
-                <span asp-validation-for="StaffMemberEmail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StaffMemberPhone" class="control-label"></label>
-                <input asp-for="StaffMemberPhone" class="form-control" />
-                <span asp-validation-for="StaffMemberPhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StaffMemberPassword" class="control-label"></label>
-                <input asp-for="StaffMemberPassword" class="form-control" />
-                <span asp-validation-for="StaffMemberPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StaffMemberRole" class="control-label"></label>
-                <select asp-for="StaffMemberRole" class="form-control" asp-items="ViewBag.Roles"></select>
-                <span asp-validation-for="StaffMemberRole" class="text-danger"></span>
-            </div>
-         
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="form-group">
-                <label asp-for="StaffMemeberRate" class="control-label"></label>
-                <input asp-for="StaffMemeberRate" class="form-control" />
-                <span asp-validation-for="StaffMemeberRate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StaffMemeberHours" class="control-label"></label>
-                <input asp-for="StaffMemeberHours" class="form-control" />
-                <span asp-validation-for="StaffMemeberHours" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TeamId" class="control-label"></label>
-                <select asp-for="TeamId" class ="form-control" asp-items="ViewBag.TeamId"></select>
-            </div>
-           
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                <!-- Staff Member Name -->
+                <div class="form-group">
+                    <label asp-for="StaffMemberName" class="control-label font-weight-bold"></label>
+                    <input asp-for="StaffMemberName" class="form-control" placeholder="Enter first name" />
+                    <span asp-validation-for="StaffMemberName" class="text-danger"></span>
+                </div>
+
+                <!-- Staff Member Surname -->
+                <div class="form-group">
+                    <label asp-for="StaffMemberSurname" class="control-label font-weight-bold"></label>
+                    <input asp-for="StaffMemberSurname" class="form-control" placeholder="Enter surname" />
+                    <span asp-validation-for="StaffMemberSurname" class="text-danger"></span>
+                </div>
+
+                <!-- Staff Member Email -->
+                <div class="form-group">
+                    <label asp-for="StaffMemberEmail" class="control-label font-weight-bold"></label>
+                    <input asp-for="StaffMemberEmail" class="form-control" placeholder="Enter email address" />
+                    <span asp-validation-for="StaffMemberEmail" class="text-danger"></span>
+                </div>
+
+                <!-- Staff Member Phone -->
+                <div class="form-group">
+                    <label asp-for="StaffMemberPhone" class="control-label font-weight-bold"></label>
+                    <input asp-for="StaffMemberPhone" class="form-control" placeholder="Enter phone number" />
+                    <span asp-validation-for="StaffMemberPhone" class="text-danger"></span>
+                </div>
+
+                <!-- Staff Member Password -->
+                <div class="form-group">
+                    <label asp-for="StaffMemberPassword" class="control-label font-weight-bold"></label>
+                    <input asp-for="StaffMemberPassword" class="form-control" type="password" placeholder="Enter password" />
+                    <span asp-validation-for="StaffMemberPassword" class="text-danger"></span>
+                </div>
+
+                <!-- Staff Member Role -->
+                <div class="form-group">
+                    <label asp-for="StaffMemberRole" class="control-label font-weight-bold"></label>
+                    <select asp-for="StaffMemberRole" class="form-control" asp-items="ViewBag.Roles">
+                        <option value="">Select role</option>
+                    </select>
+                    <span asp-validation-for="StaffMemberRole" class="text-danger"></span>
+                </div>
+
+                <!-- Staff Member Rate -->
+                <div class="form-group">
+                    <label asp-for="StaffMemeberRate" class="control-label font-weight-bold"></label>
+                    <input asp-for="StaffMemeberRate" class="form-control" placeholder="Enter rate" />
+                    <span asp-validation-for="StaffMemeberRate" class="text-danger"></span>
+                </div>
+
+                <!-- Staff Member Hours -->
+                <div class="form-group">
+                    <label asp-for="StaffMemeberHours" class="control-label font-weight-bold"></label>
+                    <input asp-for="StaffMemeberHours" class="form-control" placeholder="Enter hours worked" />
+                    <span asp-validation-for="StaffMemeberHours" class="text-danger"></span>
+                </div>
+
+                <!-- Team ID -->
+                <div class="form-group">
+                    <label asp-for="TeamId" class="control-label font-weight-bold"></label>
+                    <select asp-for="TeamId" class="form-control" asp-items="ViewBag.TeamId">
+                        <option value="">Select Team</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group text-center">
+                    <input type="submit" value="Create" class="btn btn-primary btn-lg" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Back to List Link -->
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

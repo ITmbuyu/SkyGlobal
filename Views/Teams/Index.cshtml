@@ -11,7 +11,7 @@
             <div class="w3breadcrumb-gids text-center pt-5">
                 <div class="w3breadcrumb-right">
                     <ul class="breadcrumbs-custom-path">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html" class="breadcrumb-link">Home</a></li>
                         <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Services</li>
                     </ul>
                 </div>
@@ -20,40 +20,42 @@
     </div>
 </section>
 <!--//breadcrumb-->
-<!--/services-->
 
-<h1>Index</h1>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Team Management</h1>
+        <a asp-action="Create" class="btn btn-primary">Create New Team</a>
+    </div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TeamLeaderId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TeamName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeamLeaderId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeamName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TeamId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TeamId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TeamId">Delete</a>
-            </td>
-        </tr>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.TeamLeaderId)</th>
+                    <th>@Html.DisplayNameFor(model => model.TeamName)</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.TeamLeaderId)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TeamName)</td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-route-id="@item.TeamId" class="btn btn-warning btn-sm">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.TeamId" class="btn btn-info btn-sm">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.TeamId" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
-    </tbody>
-</table>
