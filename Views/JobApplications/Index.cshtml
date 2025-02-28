@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SkyGlobal.Models.JobApplication>
+
+@{
+    ViewData["Title"] = "Job Applications";
+}
+<div style="padding-top: 100px;">
+<h2>Job Applications</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Applicant Name</th>
+            <th>Email</th>
+            <th>Job Title</th>
+            <th>Status</th>
+            <th>Applied Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var application in Model)
+        {
+            <tr>
+                <td>@application.ApplicantName</td>
+                <td>@application.ApplicantEmail</td>
+                <td>@application.Job.Title</td>
+                <td>@application.Status</td>
+                <td>@application.AppliedDate.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@application.ApplicationId" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@application.ApplicationId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

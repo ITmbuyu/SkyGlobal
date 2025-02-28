@@ -1,0 +1,22 @@
+﻿@model SkyGlobal.Models.JobApplication
+
+@{
+    ViewData["Title"] = "Application Details";
+}
+
+<h2>Application Details</h2>
+
+<div>
+    <h4>Applicant Name: @Model.ApplicantName</h4>
+    <h5>Email: @Model.ApplicantEmail</h5>
+    <h5>Job Title: @Model.Job.Title</h5>
+    <h5>Status: @Model.Status</h5>
+    <h5>Applied Date: @Model.AppliedDate.ToShortDateString()</h5>
+
+    @if (!string.IsNullOrEmpty(Model.ResumePath))
+    {
+        <h5>Resume: <a href="@Model.ResumePath" target="_blank">Download</a></h5>
+    }
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

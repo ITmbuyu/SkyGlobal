@@ -27,7 +27,12 @@ Author URL: http://w3layouts.com
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
     <link href="~/temp/assets/css/style-starter.css" rel="stylesheet" />
-   
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
 </head>
 
 <body>
@@ -49,9 +54,9 @@ Author URL: http://w3layouts.com
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        @* <li class="nav-item"> *@
+                        @*     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> *@
+                        @* </li> *@
 
                         @if (User.IsInRole("Admin"))
                         {
@@ -68,6 +73,7 @@ Author URL: http://w3layouts.com
                                 <a class="nav-link" href="/AttendanceBonus/Index">Track AttendanceBonus</a>
                             </li>
                             <li class="nav-item">
+<<<<<<< HEAD
                                 <a class="nav-link" href="/WorkUpdates/Index">Work Updates</a>
                             </li>
                             <li class="nav-item">
@@ -78,6 +84,13 @@ Author URL: http://w3layouts.com
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/EventCategories/Index">Events Categories</a>
+=======
+                                <a class="nav-link" href="/JobPostings/Create
+">Post a Job</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="JobApplications/Index">Job Applications</a>
+>>>>>>> 5281dc6b7307ad262b2172ff0fc9bc5f1a3a0625
                             </li>
                         }
                     </ul>

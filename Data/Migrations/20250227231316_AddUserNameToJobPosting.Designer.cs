@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SkyGlobal.Data;
 
@@ -11,9 +12,11 @@ using SkyGlobal.Data;
 namespace SkyGlobal.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250227231316_AddUserNameToJobPosting")]
+    partial class AddUserNameToJobPosting
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -316,6 +319,89 @@ namespace SkyGlobal.Data.Migrations
                     b.HasKey("AuditLogId");
 
                     b.ToTable("AuditLogs");
+                });
+
+            modelBuilder.Entity("SkyGlobal.Models.JobApplication", b =>
+                {
+                    b.Property<int>("ApplicationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ApplicationId"));
+
+                    b.Property<string>("ApplicantEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ApplicantName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("AppliedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CoverLetter")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("JobPostingId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ResumePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ApplicationId");
+
+                    b.HasIndex("JobPostingId");
+
+                    b.ToTable("JobApplications");
+                });
+
+            modelBuilder.Entity("SkyGlobal.Models.JobPosting", b =>
+                {
+                    b.Property<int>("JobPostingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobPostingId"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsInternal")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("PostedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Requirements")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("JobPostingId");
+
+                    b.ToTable("JobPostings");
                 });
 
             modelBuilder.Entity("SkyGlobal.Models.KpiEntry", b =>
@@ -754,86 +840,6 @@ namespace SkyGlobal.Data.Migrations
                     b.ToTable("TeamKpiPerformances");
                 });
 
-            modelBuilder.Entity("SkyGlobal.Models.WorkUpdate", b =>
-                {
-                    b.Property<int>("WorkUpdateId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WorkUpdateId"));
-
-                    b.Property<string>("ArticlePicture")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Author")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("BreakingNews")
-                        .HasColumnType("bit");
-
-                    b.Property<DateOnly?>("DatePublished")
-                        .HasColumnType("date");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("EditorsPick")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("IsApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("IsPublished")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("PickOfMonth")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("ReadingDuration")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("TrendingNow")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Update")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("WorkUpdateTopicId")
-                        .HasColumnType("int");
-
-                    b.HasKey("WorkUpdateId");
-
-                    b.HasIndex("WorkUpdateTopicId");
-
-                    b.ToTable("WorkUpdates");
-                });
-
-            modelBuilder.Entity("SkyGlobal.Models.WorkUpdateTopic", b =>
-                {
-                    b.Property<int>("WorkUpdateTopicId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WorkUpdateTopicId"));
-
-                    b.Property<string>("Topic")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Topicpicture")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("WorkUpdateTopicId");
-
-                    b.ToTable("WorkUpdateTopics");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -896,15 +902,6 @@ namespace SkyGlobal.Data.Migrations
                     b.Navigation("Job");
                 });
 
-            modelBuilder.Entity("SkyGlobal.Models.Event", b =>
-                {
-                    b.HasOne("SkyGlobal.Models.EventCategorie", "EventCategorie")
-                        .WithMany()
-                        .HasForeignKey("EventCategorieId");
-
-                    b.Navigation("EventCategorie");
-                });
-
             modelBuilder.Entity("SkyGlobal.Models.LeaveRequest", b =>
                 {
                     b.HasOne("SkyGlobal.Models.LeaveStatus", "LeaveStatus")
@@ -927,15 +924,6 @@ namespace SkyGlobal.Data.Migrations
                         .HasForeignKey("TeamId");
 
                     b.Navigation("Team");
-                });
-
-            modelBuilder.Entity("SkyGlobal.Models.WorkUpdate", b =>
-                {
-                    b.HasOne("SkyGlobal.Models.WorkUpdateTopic", "WorkUpdateTopic")
-                        .WithMany()
-                        .HasForeignKey("WorkUpdateTopicId");
-
-                    b.Navigation("WorkUpdateTopic");
                 });
 #pragma warning restore 612, 618
         }

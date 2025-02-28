@@ -1,0 +1,79 @@
+﻿@model SkyGlobal.Models.JobPosting
+<div style="padding-top: 100px;">
+<h2 class="text-center mb-4">Edit Job Posting</h2>
+
+<form asp-action="Edit" method="post" class="needs-validation" novalidate style="padding-left: 15px; padding-right: 15px;">
+    <input type="hidden" asp-for="JobPostingId" />
+
+    <!-- Job Title -->
+    <div class="form-group">
+        <label asp-for="Title" class="form-label">Job Title</label>
+        <input asp-for="Title" class="form-control" required />
+        <div class="invalid-feedback">
+            Please provide a title.
+        </div>
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <!-- Job Description -->
+    <div class="form-group">
+        <label asp-for="Description" class="form-label">Description of Job</label>
+        <textarea asp-for="Description" class="form-control" required></textarea>
+        <div class="invalid-feedback">
+            Please provide a description.
+        </div>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <!-- Job Requirements -->
+    <div class="form-group">
+        <label asp-for="Requirements" class="form-label">Requirements for Job Role</label>
+        <textarea asp-for="Requirements" class="form-control"></textarea>
+        <div class="invalid-feedback">
+            Please provide the requirements.
+        </div>
+        <span asp-validation-for="Requirements" class="text-danger"></span>
+    </div>
+
+    <!-- Job Location -->
+    <div class="form-group">
+        <label asp-for="Location" class="form-label">Job Location</label>
+        <input asp-for="Location" class="form-control" required />
+        <div class="invalid-feedback">
+            Please provide a location.
+        </div>
+        <span asp-validation-for="Location" class="text-danger"></span>
+    </div>
+
+    <!-- Internal Job Posting Checkbox -->
+    <div class="form-group form-check">
+        <input asp-for="IsInternal" class="form-check-input" type="checkbox" id="IsInternal" />
+        <label class="form-check-label" for="IsInternal">Is this an internal job posting?</label>
+        <span asp-validation-for="IsInternal" class="text-danger"></span>
+    </div>
+
+    <!-- Expiry Date -->
+    <div class="form-group">
+        <label asp-for="ExpiryDate" class="form-label">Expiry Date of Job Application</label>
+        <input asp-for="ExpiryDate" type="date" class="form-control" required />
+        <div class="invalid-feedback">
+            Please select an expiry date.
+        </div>
+        <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary btn-lg">
+            <i class="fas fa-save"></i> Save Changes
+        </button>
+    </div>
+
+    <!-- Back to List Button -->
+    <div class="form-group text-center mt-3">
+        <a asp-action="Index" class="btn btn-secondary btn-lg">
+            <i class="fas fa-arrow-left"></i> Back to List
+        </a>
+    </div>
+</form>
+</div>
