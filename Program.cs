@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using SkyGlobal.Data;
 using SkyGlobal.Models;
@@ -22,6 +23,10 @@ public class Program
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
         builder.Services.AddControllersWithViews();
+
+        builder.Services.AddTransient<IEmailSender, EmailSender>();
+
+        
 
         var app = builder.Build();
 
@@ -92,6 +97,7 @@ public class Program
         app.Run();
 
     }
+
 
 }
 

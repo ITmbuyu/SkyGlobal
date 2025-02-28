@@ -15,6 +15,7 @@ namespace SkyGlobal.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 
