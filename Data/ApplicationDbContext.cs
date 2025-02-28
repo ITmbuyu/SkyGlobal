@@ -30,7 +30,9 @@ namespace SkyGlobal.Data
         public DbSet<StaffMember> StaffMembers { get; set; }
 		public DbSet<LeaveType> LeaveTypes { get; set; }
 		public DbSet<LeaveStatus> LeaveStatuses { get; set; }
+        public DbSet<JobPosting> JobPostings { get; set; }
+        public DbSet<JobApplication> JobApplications { get; set; }
 
 
-	}
+    }
 }

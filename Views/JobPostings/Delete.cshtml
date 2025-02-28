@@ -1,0 +1,19 @@
+﻿@model SkyGlobal.Models.JobPosting
+<div style="padding-top: 100px;">
+<h2>Are you sure you want to delete this job posting?</h2>
+
+<div>
+    <strong>Title:</strong> @Model.Title
+</div>
+<div>
+    <strong>Description:</strong> @Model.Description
+</div>
+
+<form asp-action="Delete" method="post" class="d-inline">
+    <input type="hidden" name="id" value="@Model.JobPostingId" />
+    <button type="submit" class="btn btn-danger btn-lg"
+           >
+        <i class="fas fa-trash"></i> Delete
+    </button>
+</form>
+</div>

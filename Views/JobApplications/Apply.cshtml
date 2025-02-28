@@ -1,0 +1,37 @@
+﻿@model SkyGlobal.Models.JobApplication
+
+@{
+    ViewData["Title"] = "Apply for Job";
+}
+<div style="padding-top: 100px;">
+<h2>Apply for @ViewBag.JobTitle</h2>
+@if (ViewBag.JobTitle == null)
+{
+    <div class="alert alert-danger">
+        <strong>Error:</strong> Job title is missing.
+    </div>
+}
+
+
+<form asp-action="Apply" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="JobPostingId" />
+
+    <div class="form-group">
+        <label asp-for="ApplicantName"></label>
+        <input asp-for="ApplicantName" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ApplicantEmail"></label>
+        <input asp-for="ApplicantEmail" class="form-control" type="email" required />
+    </div>
+
+    <div class="form-group">
+        <label for="resumeFile">Upload Resume</label>
+        <input type="file" id="resumeFile" name="resumeFile" class="form-control" accept=".pdf,.doc,.docx" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Application</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+</div>

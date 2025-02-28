@@ -57,7 +57,7 @@ public class Program
 
             await dbContext.Database.MigrateAsync(); // Apply any pending database migrations
 
-            var roles = new[] { "Admin","Team Leader","Manager","Advisor" };
+            var roles = new[] { "Admin","Team Leader","Manager","Advisor", "Staff", "General" };
 
             foreach (var role in roles)
             {
