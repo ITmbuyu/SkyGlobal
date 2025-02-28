@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SkyGlobal.Models.Roles>
+﻿@model IEnumerable<SkyGlobal.Models.WorkUpdateTopic>
 
 @{
     ViewData["Title"] = "Index";
@@ -12,7 +12,7 @@
                 <div class="w3breadcrumb-right">
                     <ul class="breadcrumbs-custom-path">
                         <li><a href="index.html" class="breadcrumb-link">Home</a></li>
-                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> User Roles</li>
+                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Work Update Topic</li>
                     </ul>
                 </div>
             </div>
@@ -21,7 +21,6 @@
 </section>
 <!--//breadcrumb-->
 
-
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -29,7 +28,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.RoleName)
+                @Html.DisplayNameFor(model => model.Topic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Topicpicture)
             </th>
             <th></th>
         </tr>
@@ -38,12 +40,15 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.RoleName)
+                @Html.DisplayFor(modelItem => item.Topic)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.RolesId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.RolesId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RolesId">Delete</a>
+                @Html.DisplayFor(modelItem => item.Topicpicture)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.WorkUpdateTopicId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.WorkUpdateTopicId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.WorkUpdateTopicId">Delete</a>
             </td>
         </tr>
 }

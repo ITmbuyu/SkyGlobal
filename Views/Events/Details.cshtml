@@ -1,0 +1,94 @@
+﻿@model SkyGlobal.Models.Event
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<!-- breadcrumb -->
+<section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-5">
+        <div class="container py-lg-5 py-md-4">
+            <div class="w3breadcrumb-gids text-center pt-5">
+                <div class="w3breadcrumb-right">
+                    <ul class="breadcrumbs-custom-path">
+                        <li><a href="index.html" class="breadcrumb-link">Home</a></li>
+                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Event Details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--//breadcrumb-->
+
+
+<div class="container">
+    <div class="card mx-auto" style="max-width: 600px;">
+        <div class="card-header text-center">
+            <h4>@Model.EventName</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.EventDescription)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.EventDescription)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.EventTime)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.EventTime)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.EventDate)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.EventDate)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.EventThumbnail)
+                </dt>
+                <dd class="col-sm-8">
+                    <img src="@Model.EventThumbnail" alt="Article Image">
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.EventCategorie)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.EventCategorie.EventCategorieName)
+                </dd>
+            </dl>
+        </div>
+        <div class="card-footer text-center">
+            <a asp-action="Edit" asp-route-id="@Model?.EventId" class="btn btn-primary">Edit</a> |
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>
+
+<!-- Optional CSS for additional styling -->
+<style>
+    .card {
+        margin-top: 30px;
+    }
+
+    .card-header {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .card-body {
+        background-color: #f9f9f9;
+    }
+
+    .card-footer {
+        background-color: #f1f1f1;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+</style>

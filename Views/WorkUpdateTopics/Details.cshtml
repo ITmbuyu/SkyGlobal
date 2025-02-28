@@ -1,0 +1,45 @@
+﻿@model SkyGlobal.Models.WorkUpdateTopic
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!-- breadcrumb -->
+<section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-5">
+        <div class="container py-lg-5 py-md-4">
+            <div class="w3breadcrumb-gids text-center pt-5">
+                <div class="w3breadcrumb-right">
+                    <ul class="breadcrumbs-custom-path">
+                        <li><a href="index.html" class="breadcrumb-link">Home</a></li>
+                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Work Topic Details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--//breadcrumb-->
+
+<div>
+    <h4>WorkUpdateTopic</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Topic)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Topic)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Topicpicture)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Topicpicture)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.WorkUpdateTopicId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

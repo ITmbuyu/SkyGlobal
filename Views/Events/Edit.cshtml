@@ -1,0 +1,74 @@
+﻿@model SkyGlobal.Models.Event
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!-- breadcrumb -->
+<section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-5">
+        <div class="container py-lg-5 py-md-4">
+            <div class="w3breadcrumb-gids text-center pt-5">
+                <div class="w3breadcrumb-right">
+                    <ul class="breadcrumbs-custom-path">
+                        <li><a href="index.html" class="breadcrumb-link">Home</a></li>
+                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Event Edit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--//breadcrumb-->
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EventId" />
+            <div class="form-group">
+                <label asp-for="EventName" class="control-label"></label>
+                <input asp-for="EventName" class="form-control" />
+                <span asp-validation-for="EventName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventDescription" class="control-label"></label>
+                <input asp-for="EventDescription" class="form-control" />
+                <span asp-validation-for="EventDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventTime" class="control-label"></label>
+                <input asp-for="EventTime" class="form-control" type="time" />
+                <span asp-validation-for="EventTime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EventDate" class="control-label"></label>
+                <input asp-for="EventDate" class="form-control" type="date" />
+                <span asp-validation-for="EventDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EventThumbnail" class="control-label"></label>
+                <input type="file" asp-for="EventThumbnail" class="form-control" />
+                <span asp-validation-for="EventThumbnail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventCategorieId" class="control-label"></label>
+                <select asp-for="EventCategorieId" class="form-control" asp-items="ViewBag.EventCategorieId"></select>
+                <span asp-validation-for="EventCategorieId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

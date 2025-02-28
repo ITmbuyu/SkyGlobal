@@ -32,5 +32,15 @@ namespace SkyGlobal.Data
 		public DbSet<LeaveStatus> LeaveStatuses { get; set; }
 
 
-	}
+        public DbSet<WorkUpdateTopic> WorkUpdateTopics { get; set; }
+
+        public DbSet<WorkUpdate> WorkUpdates { get; set; }
+
+        public DbSet<EventCategorie> EventCategories { get; set; }
+
+        public DbSet<Event> Events { get; set; }
+
+
+
+    }
 }

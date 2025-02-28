@@ -1,0 +1,46 @@
+﻿@model SkyGlobal.Models.EventCategorie
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!-- breadcrumb -->
+<section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-5">
+        <div class="container py-lg-5 py-md-4">
+            <div class="w3breadcrumb-gids text-center pt-5">
+                <div class="w3breadcrumb-right">
+                    <ul class="breadcrumbs-custom-path">
+                        <li><a href="index.html" class="breadcrumb-link">Home</a></li>
+                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Event Categorie Create</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--//breadcrumb-->
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EventCategorieName" class="control-label"></label>
+                <input asp-for="EventCategorieName" class="form-control" />
+                <span asp-validation-for="EventCategorieName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
